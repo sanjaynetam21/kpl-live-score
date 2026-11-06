@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>KHARTA PREMIER LEAGUE | KPL</title>
+<style>
+:root{--bg:#08111f;--panel:#101d30;--panel2:#14243a;--line:#263b55;--text:#f3f7ff;--muted:#9db0c9;--orange:#ff8b27;--green:#2bd39a;--red:#ff6474;--blue:#55a8ff}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 85% 0%,#18304b 0,transparent 32%),var(--bg);color:var(--text);font:15px system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+header{padding:22px 16px 16px;background:linear-gradient(115deg,#142d49,#0d192a);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}
+.wrap{max-width:1150px;margin:auto} .brand{display:flex;align-items:center;gap:12px}.ball{width:46px;height:46px;border-radius:15px;background:linear-gradient(135deg,var(--orange),#ffbd63);display:grid;place-items:center;font-size:25px}
+h1{font-size:clamp(20px,4vw,29px);margin:0;letter-spacing:.4px}.sub{color:var(--muted);font-size:12px;margin-top:3px}
+nav{display:flex;gap:7px;overflow:auto;padding:12px 0 0}.tab{white-space:nowrap;border:1px solid var(--line);background:#0c1929;color:var(--muted);padding:9px 13px;border-radius:10px;cursor:pointer}.tab.active{background:var(--orange);color:#1b1208;border-color:var(--orange);font-weight:800}
+main{max-width:1150px;margin:18px auto;padding:0 14px 40px}.page{display:none}.page.active{display:block}.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:13px}.card{background:linear-gradient(160deg,var(--panel),#0d1929);border:1px solid var(--line);border-radius:16px;padding:16px;min-width:0}.span12{grid-column:span 12}.span8{grid-column:span 8}.span7{grid-column:span 7}.span6{grid-column:span 6}.span5{grid-column:span 5}.span4{grid-column:span 4}.span3{grid-column:span 3}
+h2{font-size:18px;margin:0 0 13px}h3{font-size:14px;color:var(--muted);margin:0 0 8px}.muted{color:var(--muted)}.small{font-size:12px;color:var(--muted)}.row{display:flex;gap:9px;align-items:center;flex-wrap:wrap}.between{display:flex;justify-content:space-between;align-items:center;gap:10px}.field{display:flex;flex-direction:column;gap:5px;min-width:0;flex:1}.field label{font-size:12px;color:var(--muted)}input,select{width:100%;min-width:0;background:#091525;border:1px solid var(--line);border-radius:9px;color:var(--text);padding:10px 11px;font:inherit}button{font:inherit}.btn{border:0;border-radius:10px;padding:10px 14px;font-weight:750;cursor:pointer;background:var(--orange);color:#201307}.btn.secondary{background:#20354f;color:var(--text);border:1px solid var(--line)}.btn.green{background:var(--green);color:#06251b}.btn.red{background:#612b38;color:#fff}.btn:disabled{opacity:.4;cursor:not-allowed}.score{font-size:clamp(34px,7vw,54px);font-weight:900;letter-spacing:-2px}.pill{display:inline-block;padding:5px 9px;border-radius:20px;background:#1b3048;color:#b8d4f6;font-size:12px}.metric{font-size:25px;font-weight:850}.scoreboard{background:linear-gradient(120deg,#163a56,#14243a);border-color:#315575}.scoreline{display:flex;justify-content:space-between;gap:12px;align-items:center}.actions{display:grid;grid-template-columns:repeat(6,1fr);gap:8px}.runbtn{padding:15px 4px;border:1px solid #37506c;border-radius:12px;background:#1a2d44;color:white;font-size:20px;font-weight:900;cursor:pointer}.runbtn:active{transform:scale(.97)}.runbtn.boundary{background:#274b43;border-color:#2c8b70}.runbtn.six{background:#55402a;border-color:#b77a35}.runbtn.wicket{background:#612b38;border-color:#a54b5b}.extras{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.extra{padding:11px 5px;background:#172941;border:1px solid var(--line);color:var(--text);border-radius:10px;cursor:pointer}.extra b{display:block;font-size:16px}.tablewrap{overflow:auto}table{width:100%;border-collapse:collapse;min-width:520px}th,td{text-align:left;padding:10px 9px;border-bottom:1px solid var(--line);font-size:13px}th{color:var(--muted);font-weight:650}td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}.empty{padding:22px;text-align:center;color:var(--muted);border:1px dashed var(--line);border-radius:12px}.notice{padding:11px 13px;border-radius:10px;background:#302719;border:1px solid #70522d;color:#f6d8a6;font-size:13px;line-height:1.5}.success{background:#102d27;border-color:#23664f;color:#b3f2d8}.danger{background:#321c26;border-color:#703748;color:#ffd2dc}.hidden{display:none!important}.listitem{padding:11px 0;border-bottom:1px solid var(--line)}.listitem:last-child{border:0}.tag{font-size:11px;padding:4px 7px;border-radius:6px;background:#1c344d;color:#bcd7f4}.overlay{position:fixed;inset:0;background:#0009;display:none;place-items:center;padding:16px;z-index:20}.overlay.show{display:grid}.modal{width:min(460px,100%);background:#122239;border:1px solid #3a5675;border-radius:17px;padding:19px;box-shadow:0 20px 80px #0009}.modal h2{margin-bottom:7px}.modal .row{margin-top:13px}.footer{text-align:center;color:#748ba7;font-size:11px;padding:20px}
+@media(max-width:760px){.span8,.span7,.span6,.span5,.span4,.span3{grid-column:span 12}.actions{grid-template-columns:repeat(3,1fr)}.extras{grid-template-columns:repeat(2,1fr)}header{position:relative}.scoreline{align-items:flex-start}}
+</style><script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-database-compat.js"></script>
+<style>
+body.viewer #matchSetup,body.viewer #scoreControls,body.viewer .admin-entry{display:none!important}
+.cloud-status{padding:10px 12px;border-radius:9px;background:#172941;border:1px solid var(--line);font-size:13px;margin-top:10px}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+ <div class="brand"><div class="ball">🏏</div><div><h1>KHARTA PREMIER LEAGUE</h1><div class="sub">KPL • TENNIS CRICKET • PUBLIC LIVE SCORE</div></div></div>
+ <nav id="nav">
+  <button class="tab active" data-page="home">🏠 होम</button><button class="tab" data-page="scoring">🎯 लाइव स्कोरिंग</button><button class="tab" data-page="teams">👥 टीमें</button><button class="tab" data-page="schedule">📅 मैच शेड्यूल</button><button class="tab" data-page="points">🏆 पॉइंट्स टेबल</button><button class="tab" data-page="stats">📊 रिकॉर्ड्स</button><button class="tab" data-page="share">🔗 शेयर / बैकअप</button>
+ </nav>
+</div></header>
+<main>
+<section id="home" class="page active">
+ <div class="grid">
+  <div class="card span12 scoreboard"><div class="between"><div><div class="pill">TOURNAMENT DASHBOARD</div><h2 style="margin:10px 0 3px">खरता प्रीमियर लीग</h2><div class="small">आपका पूरा टेनिस क्रिकेट टूर्नामेंट मैनेजमेंट ऐप</div></div><div style="font-size:48px">🏆</div></div></div>
+  <div class="card span3"><h3>कुल टीमें</h3><div class="metric" id="homeTeams">0</div></div><div class="card span3"><h3>कुल मैच</h3><div class="metric" id="homeMatches">0</div></div><div class="card span3"><h3>पूरे हुए मैच</h3><div class="metric" id="homeDone">0</div></div><div class="card span3"><h3>कुल खिलाड़ी</h3><div class="metric" id="homePlayers">0</div></div>
+  <div class="card span8"><div class="between"><h2>हाल के मैच</h2><button class="btn secondary" onclick="go('schedule')">सभी मैच</button></div><div id="recentMatches"></div></div>
+  <div class="card span4"><h2>जल्दी शुरू करें</h2><button class="btn" style="width:100%;margin-bottom:8px" onclick="go('scoring')">＋ नया मैच स्कोर करें</button><button class="btn secondary" style="width:100%;margin-bottom:8px" onclick="go('teams')">＋ टीम / खिलाड़ी जोड़ें</button><button class="btn secondary" style="width:100%" onclick="go('schedule')">＋ मैच शेड्यूल बनाएं</button></div>
+  <div class="card span12"><div class="notice">ध्यान दें: यह ऐप अभी आपके डिवाइस के ब्राउज़र में डेटा सेव करता है। अलग-अलग मोबाइल पर एक साथ लाइव स्कोर देखने के लिए ऑनलाइन डेटाबेस और होस्टिंग जोड़ना जरूरी है। बैकअप/एक्सपोर्ट से अपना डेटा सुरक्षित रखें।</div></div>
+ </div>
+</section>
+<section id="scoring" class="page">
+ <div class="grid">
+  <div class="card span12"><div class="between"><h2>🎯 मैच स्कोरिंग</h2><span class="pill" id="matchStatus">नया मैच</span></div>
+   <div class="row">
+    <div class="field"><label>मैच चुनें</label><select id="matchSelect" onchange="loadSelectedMatch()"></select></div>
+    <button class="btn secondary" onclick="newMatch()">＋ नया मैच</button>
+   </div>
+  </div>
+  <div class="card span12" id="matchSetup">
+   <h2>मैच सेटअप</h2><div class="row"><div class="field"><label>टीम A</label><select id="teamA"></select></div><div class="field"><label>टीम B</label><select id="teamB"></select></div><div class="field"><label>ओवर</label><input id="maxOvers" type="number" min="1" max="50" value="6"></div></div>
+   <div class="row" style="margin-top:12px"><div class="field"><label>मैच का नाम / ग्राउंड (वैकल्पिक)</label><input id="matchTitle" placeholder="जैसे: पहला सेमीफाइनल"></div><button class="btn green" onclick="createMatch()">मैच शुरू करें</button></div>
+  </div>
+  <div class="card span12 scoreboard hidden" id="liveBoard">
+   <div class="between"><div><div class="pill" id="inningsLabel">पहली पारी</div><h2 id="battingName" style="margin:9px 0 0">टीम</h2></div><div style="text-align:right"><div class="score" id="bigScore">0/0</div><div id="oversText" class="small">0.0 ओवर</div></div></div>
+   <div class="row" style="margin-top:12px"><span class="pill" id="targetText">लक्ष्य —</span><span class="pill" id="runRate">RR 0.00</span><span class="pill" id="needRate">CRR 0.00</span></div>
+  </div>
+  <div class="card span6 hidden" id="batCard"><h2>बल्लेबाज़</h2><div class="tablewrap"><table><thead><tr><th>खिलाड़ी</th><th class="num">R</th><th class="num">B</th><th class="num">4s</th><th class="num">6s</th></tr></thead><tbody id="batRows"></tbody></table></div></div>
+  <div class="card span6 hidden" id="bowlCard"><h2>गेंदबाज़</h2><div class="tablewrap"><table><thead><tr><th>खिलाड़ी</th><th class="num">O</th><th class="num">R</th><th class="num">W</th><th class="num">Econ</th></tr></thead><tbody id="bowlRows"></tbody></table></div></div>
+  <div class="card span12 hidden" id="scoreControls">
+   <div class="between"><h2>एक क्लिक स्कोरिंग</h2><span class="small">हर वैध गेंद पर ओवर अपने आप बढ़ेगा</span></div>
+   <div class="actions">
+    <button class="runbtn" onclick="addRuns(0)">0</button><button class="runbtn" onclick="addRuns(1)">1</button><button class="runbtn" onclick="addRuns(2)">2</button><button class="runbtn" onclick="addRuns(3)">3</button><button class="runbtn boundary" onclick="addRuns(4)">4</button><button class="runbtn six" onclick="addRuns(6)">6</button>
+   </div>
+   <h3 style="margin-top:16px">एक्स्ट्रा</h3><div class="extras">
+    <button class="extra" onclick="addExtra('WD')"><b>WD</b><span class="small">Wide +1</span></button><button class="extra" onclick="addExtra('NB')"><b>NB</b><span class="small">No Ball +1</span></button><button class="extra" onclick="addExtra('B')"><b>Bye</b><span class="small">रन पूछेगा</span></button><button class="extra" onclick="addExtra('LB')"><b>Leg Bye</b><span class="small">रन पूछेगा</span></button>
+   </div>
+   <div class="row" style="margin-top:13px"><button class="btn red" onclick="wicket()">✕ विकेट</button><button class="btn secondary" onclick="finishInnings()">पारी समाप्त</button><button class="btn secondary" onclick="finishMatch()">मैच समाप्त</button></div>
+   <div class="small" style="margin-top:10px">Wide / No Ball पर गेंद ओवर में नहीं गिनी जाएगी। Bye / Leg Bye वैध गेंद मानी जाएगी।</div>
+  </div>
+  <div class="card span12 hidden" id="commentaryCard"><h2>गेंद-दर-गेंद अपडेट</h2><div id="commentary"></div></div>
+  <div class="card span12"><h2>मैच का स्कोरकार्ड</h2><div id="scorecard" class="empty">मैच शुरू होने पर स्कोरकार्ड यहां दिखेगा।</div></div>
+ </div>
+</section>
+<section id="teams" class="page"><div class="grid">
+ <div class="card span5 admin-entry"><h2>नई टीम जोड़ें</h2><div class="field"><label>टीम का नाम</label><input id="newTeamName" placeholder="जैसे Aryan 11"></div><button class="btn" style="margin-top:10px" onclick="addTeam()">टीम जोड़ें</button></div>
+ <div class="card span7"><h2>टीमें और खिलाड़ी</h2><div id="teamList"></div></div>
+ <div class="card span12 admin-entry"><h2>खिलाड़ी जोड़ें</h2><div class="row"><div class="field"><label>टीम</label><select id="playerTeam"></select></div><div class="field"><label>खिलाड़ी का नाम</label><input id="playerName" placeholder="खिलाड़ी का नाम"></div><div class="field"><label>खिलाड़ी की पंचायत / गांव</label><select id="playerArea"><option value="">क्षेत्र चुनें</option><optgroup label="पंचायतें"><option>गुजरा</option><option>दशपुर</option><option>जोबा</option><option>आमदी</option><option>कोसमी</option><option>दर्रिपारा</option><option>रावनडिग्गी</option><option>खरता</option><option>खुर्सीपार</option><option>बेंदकुरा</option><option>भैसामुड़ा</option></optgroup><optgroup label="गांव"><option>मारागांव</option><option>बोइरगांव</option><option>काजनसरा</option></optgroup></select></div><button class="btn green" onclick="addPlayer()">खिलाड़ी जोड़ें</button></div><div class="notice" style="margin-top:12px"><b>खिलाड़ी पात्रता नियम:</b> इस लीग में केवल गुजरा, दशपुर, जोबा, आमदी, कोसमी, दर्रिपारा, रावनडिग्गी, खरता, खुर्सीपार, बेंदकुरा और भैसामुड़ा पंचायतों तथा मारागांव, बोइरगांव और काजनसरा गांव के खिलाड़ी ही हिस्सा ले सकेंगे। कुल 14 निर्धारित क्षेत्र। खिलाड़ी जोड़ते समय क्षेत्र चुनना अनिवार्य है।</div></div>
+ </div></section>
+<section id="schedule" class="page"><div class="grid">
+ <div class="card span5 admin-entry"><h2>मैच शेड्यूल बनाएं</h2><div class="field"><label>टीम A</label><select id="schA"></select></div><div class="field" style="margin-top:8px"><label>टीम B</label><select id="schB"></select></div><div class="row" style="margin-top:8px"><div class="field"><label>तारीख</label><input id="schDate" type="date"></div><div class="field"><label>समय</label><input id="schTime" type="time"></div></div><div class="field" style="margin-top:8px"><label>ग्राउंड / राउंड</label><input id="schVenue" placeholder="मैदान / लीग मैच"></div><button class="btn" style="margin-top:12px" onclick="addSchedule()">शेड्यूल जोड़ें</button></div>
+ <div class="card span7"><h2>सभी मैच</h2><div id="scheduleList"></div></div>
+ </div></section>
+<section id="points" class="page"><div class="card"><h2>🏆 पॉइंट्स टेबल</h2><div class="tablewrap" id="pointsTable"></div><div class="small" style="margin-top:9px">जीत = 2 अंक • हार = 0 अंक • टाई = 1 अंक (मैच रिजल्ट दर्ज होने पर)</div></div></section>
+<section id="stats" class="page"><div class="grid">
+ <div class="card span12"><h2>🏅 टूर्नामेंट रिकॉर्ड्स</h2><div class="grid">
+  <div class="card span4"><h3>Orange Cap • सबसे ज्यादा रन</h3><div id="orangeCap" class="empty">अभी रिकॉर्ड उपलब्ध नहीं</div></div>
+  <div class="card span4"><h3>Purple Cap • सबसे ज्यादा विकेट</h3><div id="purpleCap" class="empty">अभी रिकॉर्ड उपलब्ध नहीं</div></div>
+  <div class="card span4"><h3>सबसे ज्यादा चौके</h3><div id="foursCap" class="empty">अभी रिकॉर्ड उपलब्ध नहीं</div></div>
+  <div class="card span4"><h3>सबसे ज्यादा छक्के</h3><div id="sixesCap" class="empty">अभी रिकॉर्ड उपलब्ध नहीं</div></div>
+  <div class="card span4"><h3>सबसे ज्यादा कैच</h3><div id="catchesCap" class="empty">कैच दर्ज करने के लिए खिलाड़ी रिकॉर्ड संपादित करें</div></div>
+  <div class="card span4"><h3>कुल टूर्नामेंट रन</h3><div id="totalRuns" class="metric">0</div></div>
+ </div></div>
+ <div class="card span12"><h2>खिलाड़ियों का पूरा प्रदर्शन</h2><div class="tablewrap" id="playerStats"></div></div>
+ <div class="card span12 admin-entry"><h2>कैच अपडेट करें</h2><div class="row"><div class="field"><label>खिलाड़ी</label><select id="catchPlayer"></select></div><div class="field"><label>कैच की संख्या</label><input type="number" id="catchCount" min="1" value="1"></div><button class="btn" onclick="addCatches()">कैच जोड़ें</button></div></div>
+ </div></section>
+<section id="share" class="page"><div class="grid">
+ <div class="card span6"><h2>🔗 लाइव स्कोर लिंक</h2><p class="muted">यह लिंक दर्शकों को भेजें। दर्शक बिना लॉगिन लाइव स्कोर देख सकेंगे।</p><button class="btn" onclick="shareApp()">ऐप लिंक शेयर करें</button> <button class="btn secondary" onclick="copyAppLink()">लिंक कॉपी करें</button><div id="cloudStatus" class="cloud-status">क्लाउड कनेक्शन सेटअप बाकी है।</div></div>
+ <div class="card span6 admin-panel"><h2>🔐 एडमिन लॉगिन और लाइव डेटाबेस</h2><p class="small">Firebase Console से मिले Web App Config को नीचे पेस्ट करें। फिर एडमिन ईमेल और पासवर्ड से लॉगिन करें।</p><div class="field"><label>Firebase Web App Config (JSON)</label><textarea id="firebaseConfig" rows="4" style="width:100%;background:#091525;color:white;border:1px solid var(--line);border-radius:9px;padding:10px" placeholder='{"apiKey":"...","authDomain":"...","databaseURL":"https://...-default-rtdb.firebaseio.com","projectId":"...","appId":"..."}'>{
+  "apiKey": "AIzaSyDTn55hoTIBnTCSXAQ2l-TeaZoYmtU5NGE",
+  "authDomain": "kharta-premier-league.firebaseapp.com",
+  "databaseURL": "https://kharta-premier-league-default-rtdb.asia-southeast1.firebasedatabase.app/",
+  "projectId": "kharta-premier-league",
+  "storageBucket": "kharta-premier-league.firebasestorage.app",
+  "messagingSenderId": "637755112134",
+  "appId": "1:637755112134:web:e83b3de1ec26b1ce2435c7",
+  "measurementId": "G-TE2FPTM83G"
+}</textarea></div><div class="row" style="margin-top:8px"><div class="field"><label>एडमिन ईमेल</label><input id="adminEmail" type="email" placeholder="admin@example.com"></div><div class="field"><label>पासवर्ड</label><input id="adminPassword" type="password" placeholder="Firebase Auth password"></div></div><div class="row" style="margin-top:10px"><button class="btn green" id="kplConnectBtn" onclick="connectFirebase()">डेटाबेस जोड़ें / एडमिन लॉगिन</button><button class="btn secondary" onclick="sendKplPasswordReset()">पासवर्ड रीसेट ईमेल</button><button class="btn secondary" onclick="adminLogout()">लॉगआउट</button></div><div class="small" style="margin-top:8px">कॉन्फिग इस डिवाइस पर सेव होगा। पासवर्ड सेव नहीं किया जाएगा।</div></div>
+ <div class="card span6"><h2>डेटा बैकअप</h2><p class="muted">टीमें, खिलाड़ी, मैच, स्कोर और रिकॉर्ड JSON फाइल में डाउनलोड करें।</p><button class="btn green" onclick="exportData()">⬇ बैकअप डाउनलोड</button><div class="field" style="margin-top:13px"><label>पुराना बैकअप वापस लाएं</label><input type="file" id="importFile" accept="application/json"></div><button class="btn secondary" style="margin-top:9px" onclick="importData()">बैकअप इम्पोर्ट करें</button></div>
+ <div class="card span12 admin-entry"><h2>ऐप सेटिंग</h2><button class="btn red" onclick="resetAll()">पूरा डेटा रीसेट करें</button><div class="small" style="margin-top:8px">रीसेट करने से इस ब्राउज़र में सेव सभी डेटा हट जाएगा। पहले बैकअप डाउनलोड कर लें।</div></div>
+ </div></section>
+<div class="footer">KHARTA PREMIER LEAGUE • KPL SCORING SYSTEM</div>
+</main>
+<div class="overlay" id="promptOverlay"><div class="modal"><h2 id="promptTitle">जानकारी दर्ज करें</h2><div id="promptBody"></div><div class="row"><button class="btn green" id="promptOk">सेव करें</button><button class="btn secondary" onclick="closePrompt()">बाद में</button></div></div></div>
+<script>
+const KEY='kpl_complete_v1';
+let db=loadDB(), currentId=null, pendingPrompt=null;
+function fresh(){return {teams:[],matches:[],players:{},playerExtras:{},schedules:[]}}
+function loadDB(){try{return JSON.parse(localStorage.getItem(KEY))||fresh()}catch(e){return fresh()}}
+function save(){localStorage.setItem(KEY,JSON.stringify(db));renderAll();if(window.kplCloudReady&&window.kplIsAdmin){window.kplDbRef.set(db).catch(e=>cloudMessage("क्लाउड सेव नहीं हुआ: "+e.message))}}
+function uid(){return Date.now().toString(36)+Math.random().toString(36).slice(2,7)}
+function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function go(id){document.querySelectorAll('.page').forEach(x=>x.classList.toggle('active',x.id===id));document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('active',x.dataset.page===id));renderAll();window.scrollTo({top:0,behavior:'smooth'})}
+document.getElementById('nav').addEventListener('click',e=>{let b=e.target.closest('[data-page]');if(b)go(b.dataset.page)});
+function teamOpts(sel){return db.teams.map(t=>`<option value="${t.id}" ${t.id===sel?'selected':''}>${esc(t.name)}</option>`).join('')}
+function fillSelect(id,selected){let el=document.getElementById(id);if(el)el.innerHTML=teamOpts(selected)||'<option value="">पहले टीम जोड़ें</option>'}
+function renderAll(){renderHome();renderTeams();renderSchedules();renderPoints();renderStats();renderMatchSelect();if(currentId)renderMatch()}
+function renderHome(){let done=db.matches.filter(m=>m.status==='done').length;document.getElementById('homeTeams').textContent=db.teams.length;document.getElementById('homeMatches').textContent=db.matches.length+db.schedules.length;document.getElementById('homeDone').textContent=done;document.getElementById('homePlayers').textContent=Object.values(db.players).reduce((a,x)=>a+x.length,0);
+let items=db.matches.slice(-4).reverse();document.getElementById('recentMatches').innerHTML=items.length?items.map(m=>`<div class="listitem"><div class="between"><b>${esc(m.title||teamName(m.a)+' vs '+teamName(m.b))}</b><span class="tag">${m.status==='done'?'समाप्त':'लाइव'}</span></div><div class="small">${scoreText(m.innings[0])} ${m.innings[1]?' • '+scoreText(m.innings[1]):''}</div></div>`).join(''):'<div class="empty">अभी कोई मैच नहीं है।</div>'}
+function addTeam(){let n=document.getElementById('newTeamName').value.trim();if(!n)return alert('टीम का नाम लिखें');if(db.teams.some(t=>t.name.toLowerCase()===n.toLowerCase()))return alert('यह टीम पहले से मौजूद है');let id=uid();db.teams.push({id,name:n});db.players[id]=[];document.getElementById('newTeamName').value='';save()}
+function addPlayer(){let tid=document.getElementById('playerTeam').value,n=document.getElementById('playerName').value.trim(),area=document.getElementById('playerArea').value;if(!tid||!n)return alert('टीम और खिलाड़ी का नाम चुनें');if(!area)return alert('खिलाड़ी की पंचायत / गांव चुनना अनिवार्य है');db.players[tid]=db.players[tid]||[];if(db.players[tid].some(p=>p.name.toLowerCase()===n.toLowerCase()))return alert('खिलाड़ी पहले से है');db.players[tid].push({id:uid(),name:n,area,catches:0});document.getElementById('playerName').value='';document.getElementById('playerArea').value='';save()}
+function renderTeams(){['teamA','teamB','playerTeam','schA','schB'].forEach(id=>fillSelect(id));let el=document.getElementById('teamList');el.innerHTML=db.teams.length?db.teams.map(t=>`<div class="listitem"><div class="between"><b>${esc(t.name)}</b><button class="btn red" onclick="deleteTeam('${t.id}')">हटाएं</button></div><div class="row" style="margin-top:7px">${(db.players[t.id]||[]).map(p=>`<span class="pill">${esc(p.name)}${p.area?' • '+esc(p.area):''} <button style="border:0;background:none;color:#ff9aa7;cursor:pointer" onclick="deletePlayer('${t.id}','${p.id}')">×</button></span>`).join('')||'<span class="small">अभी खिलाड़ी नहीं जोड़े गए</span>'}</div></div>`).join(''):'<div class="empty">पहले टीम जोड़ें।</div>'}
+function deleteTeam(id){if(!confirm('टीम और उसके खिलाड़ी हटाएं?'))return;db.teams=db.teams.filter(t=>t.id!==id);delete db.players[id];save()}
+function deletePlayer(tid,pid){db.players[tid]=(db.players[tid]||[]).filter(p=>p.id!==pid);save()}
+function teamName(id){return db.teams.find(t=>t.id===id)?.name||'टीम'}
+function allPlayers(tid){return (db.players[tid]||[]).map(p=>p.name)}
+function newMatch(){currentId=null;document.getElementById('matchSetup').classList.remove('hidden');document.getElementById('liveBoard').classList.add('hidden');document.getElementById('scoreControls').classList.add('hidden');document.getElementById('batCard').classList.add('hidden');document.getElementById('bowlCard').classList.add('hidden');document.getElementById('commentaryCard').classList.add('hidden');document.getElementById('matchStatus').textContent='नया मैच';document.getElementById('scorecard').innerHTML='<div class="empty">मैच शुरू होने पर स्कोरकार्ड यहां दिखेगा।</div>';document.getElementById('matchSelect').value=''}
+function createMatch(){let a=document.getElementById('teamA').value,b=document.getElementById('teamB').value,overs=+document.getElementById('maxOvers').value;if(!a||!b||a===b)return alert('दो अलग-अलग टीमें चुनें');if(!allPlayers(a).length||!allPlayers(b).length)return alert('दोनों टीमों में कम से कम एक खिलाड़ी जोड़ें');if(overs<1||overs>50)return alert('ओवर 1 से 50 के बीच रखें');let m={id:uid(),a,b,maxOvers:overs,title:document.getElementById('matchTitle').value.trim(),status:'live',innings:[],batting:a,bowling:b,events:[],result:'',created:new Date().toISOString()};m.innings.push(newInn(a,b));db.matches.push(m);currentId=m.id;save();promptOpen('पहली पारी के खिलाड़ी','batter')}
+function newInn(bat,bowl){return {bat,bowl,runs:0,wickets:0,legal:0,batters:[],bowlers:[],striker:'',nonStriker:'',bowler:'',target:null,extras:{WD:0,NB:0,B:0,LB:0},fall:[]}}
+function getMatch(){return db.matches.find(m=>m.id===currentId)}
+function renderMatchSelect(){let s=document.getElementById('matchSelect');s.innerHTML='<option value="">मैच चुनें</option>'+db.matches.map(m=>`<option value="${m.id}" ${m.id===currentId?'selected':''}>${esc(m.title||teamName(m.a)+' vs '+teamName(m.b))} (${m.status==='done'?'समाप्त':'लाइव'})</option>`).join('')}
+function loadSelectedMatch(){currentId=document.getElementById('matchSelect').value||null;if(currentId){document.getElementById('matchSetup').classList.add('hidden');renderMatch()}else newMatch()}
+function currentInn(m=getMatch()){return m?.innings[m.innings.length-1]}
+function playerRow(arr,name){let p=arr.find(x=>x.name===name);if(!p){p={name,r:0,b:0,f:0,s:0,w:0,rc:0,legal:0};arr.push(p)}return p}
+function currentBowler(i){return playerRow(i.bowlers,i.bowler)}
+function renderMatch(){let m=getMatch();if(!m)return;let i=currentInn(m),active=m.status==='live';document.getElementById('matchSetup').classList.add('hidden');['liveBoard','batCard','bowlCard','scoreControls','commentaryCard'].forEach(id=>document.getElementById(id).classList.remove('hidden'));document.getElementById('scoreControls').classList.toggle('hidden',!active);document.getElementById('matchStatus').textContent=active?'मैच लाइव':'मैच समाप्त';document.getElementById('inningsLabel').textContent=m.innings.length===1?'पहली पारी':'दूसरी पारी';document.getElementById('battingName').textContent=teamName(i.bat)+' बल्लेबाज़ी';document.getElementById('bigScore').textContent=i.runs+'/'+i.wickets;document.getElementById('oversText').textContent=`${Math.floor(i.legal/6)}.${i.legal%6} ओवर`;document.getElementById('targetText').textContent=i.target?'लक्ष्य '+i.target:'पहली पारी';let rr=i.legal?i.runs/(i.legal/6):0;document.getElementById('runRate').textContent='RR '+rr.toFixed(2);document.getElementById('needRate').textContent=i.target?'जरूरी रन '+Math.max(0,i.target-i.runs):'';
+document.getElementById('batRows').innerHTML=i.batters.map(p=>`<tr><td>${esc(p.name)} ${[i.striker,i.nonStriker].includes(p.name)?'*':''}</td><td class="num">${p.r}</td><td class="num">${p.b}</td><td class="num">${p.f}</td><td class="num">${p.s}</td></tr>`).join('')||'<tr><td colspan="5">खिलाड़ी दर्ज नहीं</td></tr>';
+document.getElementById('bowlRows').innerHTML=i.bowlers.map(p=>`<tr><td>${esc(p.name)} ${p.name===i.bowler?'*':''}</td><td class="num">${Math.floor(p.legal/6)}.${p.legal%6}</td><td class="num">${p.rc}</td><td class="num">${p.w}</td><td class="num">${p.legal?(p.rc/(p.legal/6)).toFixed(2):'0.00'}</td></tr>`).join('')||'<tr><td colspan="5">गेंदबाज़ दर्ज नहीं</td></tr>';
+document.getElementById('commentary').innerHTML=m.events.slice(-12).reverse().map(e=>`<div class="listitem"><div class="between"><b>${esc(e.label)}</b><span class="small">${e.over}</span></div><div class="small">${esc(e.note||'')}</div></div>`).join('')||'<div class="empty">अभी कोई गेंद नहीं डाली गई।</div>';
+document.getElementById('scorecard').innerHTML=scorecardHTML(m);
+}
+function scoreText(i){return i?`${teamName(i.bat)} ${i.runs}/${i.wickets} (${Math.floor(i.legal/6)}.${i.legal%6})`:''}
+function scorecardHTML(m){return m.innings.map((i,n)=>`<div style="margin-bottom:16px"><h3>${n?'दूसरी':'पहली'} पारी — ${esc(teamName(i.bat))}</h3><b>${i.runs}/${i.wickets}</b> <span class="small">${Math.floor(i.legal/6)}.${i.legal%6} ओवर</span><div class="tablewrap"><table><thead><tr><th>बल्लेबाज़</th><th class="num">रन</th><th class="num">गेंद</th><th class="num">4</th><th class="num">6</th></tr></thead><tbody>${i.batters.map(p=>`<tr><td>${esc(p.name)}</td><td class="num">${p.r}</td><td class="num">${p.b}</td><td class="num">${p.f}</td><td class="num">${p.s}</td></tr>`).join('')}</tbody></table></div><div class="small">एक्स्ट्रा: WD ${i.extras.WD}, NB ${i.extras.NB}, B ${i.extras.B}, LB ${i.extras.LB}</div></div>`).join('')+(m.result?`<div class="notice success"><b>नतीजा:</b> ${esc(m.result)}</div>`:'')}
+function record(label,legal,note){let m=getMatch(),i=currentInn(m);m.events.push({label,legal,note,over:`${Math.floor(i.legal/6)}.${i.legal%6}`});}
+function addRuns(n){let m=getMatch();if(!m||m.status!=='live')return;let i=currentInn(m);if(!i.striker||!i.bowler)return alert('पहले बल्लेबाज़ और गेंदबाज़ दर्ज करें');let bat=playerRow(i.batters,i.striker),bowl=currentBowler(i);i.runs+=n;bat.r+=n;bat.b++;if(n===4)bat.f++;if(n===6)bat.s++;bowl.rc+=n;bowl.legal++;i.legal++;record(n+' रन',true,`${i.striker} • ${i.bowler}`);if(n%2===1)[i.striker,i.nonStriker]=[i.nonStriker,i.striker];afterBall()}
+function addExtra(type){let m=getMatch();if(!m||m.status!=='live')return;let i=currentInn(m);if(!i.striker||!i.bowler)return alert('पहले बल्लेबाज़ और गेंदबाज़ दर्ज करें');let n=1;if(type==='B'||type==='LB'){let v=prompt(type==='B'?'कितने Bye रन?':'कितने Leg Bye रन?','1');if(v===null)return;n=Math.max(0,parseInt(v)||0)}let bat=playerRow(i.batters,i.striker),bowl=currentBowler(i);if(type==='WD'||type==='NB'){i.runs+=1+n-1;bowl.rc+=1;if(type==='WD')i.extras.WD++;else i.extras.NB++;record(type,true,`${type==='WD'?'Wide':'No Ball'} +1`);if(type==='NB'&&n>1){i.runs+=n-1;bat.r+=n-1;bowl.rc+=n-1}}else{i.runs+=n;i.extras[type]+=n;bat.b++;bowl.legal++;i.legal++;bowl.rc+=0;record(type+' '+n,true,`${i.striker}`)}afterBall()}
+function wicket(){let m=getMatch();if(!m||m.status!=='live')return;let i=currentInn(m);if(!i.striker||!i.bowler)return alert('पहले बल्लेबाज़ और गेंदबाज़ दर्ज करें');let how=prompt('आउट का प्रकार लिखें: Bowled / Caught / Run Out / LBW / Stumped / Hit Wicket','Bowled');if(how===null)return;let out=prompt('कौन आउट हुआ? 1 = स्ट्राइक, 2 = नॉन-स्ट्राइक','1');if(out===null)return;let name=out==='2'?i.nonStriker:i.striker;let p=playerRow(i.batters,name);p.b++;i.wickets++;if(!/run\s*out/i.test(how))currentBowler(i).w++;currentBowler(i).legal++;i.legal++;i.fall.push({w:i.wickets,r:i.runs,name,how});record('विकेट • '+how,true,name+' आउट');if(name===i.striker)i.striker='';else i.nonStriker='';if(checkInningsEnd(m)){endInningsAuto(m);return}afterBall(true)}
+function afterBall(wasWicket=false){let m=getMatch(),i=currentInn(m);if(checkInningsEnd(m)){endInningsAuto(m);return}let overDone=i.legal>0&&i.legal%6===0;if(overDone)[i.striker,i.nonStriker]=[i.nonStriker,i.striker];save();if(wasWicket&&(!i.striker||!i.nonStriker)){promptOpen('नया बल्लेबाज़ चुनें','batter');return}if(overDone){promptOpen('ओवर पूरा! अगला गेंदबाज़ चुनें','bowler');return}if(wasWicket)promptOpen('नया बल्लेबाज़ चुनें','batter')}
+function checkInningsEnd(m){let i=currentInn(m),players=(db.players[i.bat]||[]).length;return i.wickets>=Math.max(1,players-1)||i.legal>=m.maxOvers*6||(i.target&&i.runs>=i.target)}
+function endInningsAuto(m){let i=currentInn(m);if(m.innings.length===1){i.finished=true;let next=newInn(i.bowl,i.bat);next.target=i.runs+1;m.innings.push(next);m.batting=next.bat;m.bowling=next.bowl;save();promptOpen('दूसरी पारी शुरू करें','batter')}else{finishMatch()}}
+function finishInnings(){let m=getMatch();if(!m||m.status!=='live')return;endInningsAuto(m)}
+function finishMatch(){let m=getMatch();if(!m)return;m.status='done';let a=m.innings[0],b=m.innings[1];if(!b)m.result=teamName(a.b)+' ने मैच जीता';else if(a.runs>b.runs)m.result=teamName(a.bat)+' ने '+(a.runs-b.runs)+' रन से जीत दर्ज की';else if(b.runs>a.runs)m.result=teamName(b.bat)+' ने '+Math.max(0,(db.players[b.bat]||[]).length-1-b.wickets)+' विकेट से जीत दर्ज की';else m.result='मैच टाई';save();alert('मैच समाप्त: '+m.result)}
+function promptOpen(title,type){let m=getMatch(),i=currentInn(m);pendingPrompt=type;document.getElementById('promptTitle').textContent=title;let html='';if(type==='batter'){let used=i.batters.map(p=>p.name);let names=allPlayers(i.bat).filter(n=>!used.includes(n));html=`<div class="field"><label>स्ट्राइक पर बल्लेबाज़</label><select id="promptStriker">${names.map(n=>`<option>${esc(n)}</option>`).join('')}</select></div><div class="field" style="margin-top:8px"><label>दूसरा बल्लेबाज़</label><select id="promptNon"><option value="">अभी नहीं</option>${names.map(n=>`<option>${esc(n)}</option>`).join('')}</select></div>`}else{let names=allPlayers(i.bowl);html=`<div class="field"><label>अगला गेंदबाज़</label><select id="promptBowler">${names.map(n=>`<option>${esc(n)}</option>`).join('')}</select></div>`}document.getElementById('promptBody').innerHTML=html;document.getElementById('promptOverlay').classList.add('show');document.getElementById('promptOk').onclick=promptSave}
+function promptSave(){let m=getMatch(),i=currentInn(m),was=pendingPrompt;if(was==='batter'){let s=document.getElementById('promptStriker')?.value,n=document.getElementById('promptNon')?.value;if(!s){closePrompt();return}i.striker=s;if(n&&n!==s)i.nonStriker=n;else if(!i.nonStriker||i.nonStriker===s){let other=allPlayers(i.bat).find(x=>x!==s&&!i.batters.some(p=>p.name===x));i.nonStriker=other||''}}else if(was==='bowler'){i.bowler=document.getElementById('promptBowler')?.value||''}closePrompt();save();if(was==='batter'&&(!i.bowler||i.legal%6===0)){promptOpen(i.legal===0?'पहला गेंदबाज़ चुनें':'अगला गेंदबाज़ चुनें','bowler')}}
+function closePrompt(){document.getElementById('promptOverlay').classList.remove('show');pendingPrompt=null}
+function addSchedule(){let a=document.getElementById('schA').value,b=document.getElementById('schB').value;if(!a||!b||a===b)return alert('दो अलग टीमें चुनें');db.schedules.push({id:uid(),a,b,date:document.getElementById('schDate').value,time:document.getElementById('schTime').value,venue:document.getElementById('schVenue').value});save()}
+function renderSchedules(){document.getElementById('scheduleList').innerHTML=db.schedules.length?db.schedules.slice().sort((a,b)=>(a.date+a.time).localeCompare(b.date+b.time)).map(s=>`<div class="listitem"><div class="between"><b>${esc(teamName(s.a))} vs ${esc(teamName(s.b))}</b><button class="btn red" onclick="deleteSchedule('${s.id}')">हटाएं</button></div><div class="small">${esc(s.date||'तारीख तय नहीं')} ${esc(s.time||'')} • ${esc(s.venue||'ग्राउंड तय नहीं')}</div></div>`).join(''):'<div class="empty">अभी शेड्यूल नहीं बनाया गया।</div>'}
+function deleteSchedule(id){db.schedules=db.schedules.filter(s=>s.id!==id);save()}
+function statsData(){let map={};db.teams.forEach(t=>(db.players[t.id]||[]).forEach(p=>map[p.name+'|'+t.id]={name:p.name,team:t.name,r:0,w:0,f:0,s:0,c:p.catches||0,b:0}));db.matches.forEach(m=>m.innings.forEach(i=>{i.batters.forEach(p=>{let x=map[p.name+'|'+i.bat]||(map[p.name+'|'+i.bat]={name:p.name,team:teamName(i.bat),r:0,w:0,f:0,s:0,c:0,b:0});x.r+=p.r;x.f+=p.f;x.s+=p.s;x.b+=p.b});i.bowlers.forEach(p=>{let x=map[p.name+'|'+i.bowl]||(map[p.name+'|'+i.bowl]={name:p.name,team:teamName(i.bowl),r:0,w:0,f:0,s:0,c:0,b:0});x.w+=p.w})}));return Object.values(map)}
+function topCard(id,arr,key,unit){let x=arr.slice().sort((a,b)=>b[key]-a[key])[0];document.getElementById(id).innerHTML=x&&x[key]>0?`<div class="metric">${x[key]} ${unit}</div><b>${esc(x.name)}</b><div class="small">${esc(x.team)}</div>`:'<div class="empty">अभी रिकॉर्ड उपलब्ध नहीं</div>'}
+function renderStats(){let a=statsData();topCard('orangeCap',a,'r','रन');topCard('purpleCap',a,'w','विकेट');topCard('foursCap',a,'f','चौके');topCard('sixesCap',a,'s','छक्के');topCard('catchesCap',a,'c','कैच');document.getElementById('totalRuns').textContent=a.reduce((s,x)=>s+x.r,0);document.getElementById('playerStats').innerHTML=a.length?`<table><thead><tr><th>खिलाड़ी</th><th>टीम</th><th class="num">रन</th><th class="num">विकेट</th><th class="num">4s</th><th class="num">6s</th><th class="num">कैच</th></tr></thead><tbody>${a.sort((x,y)=>y.r-x.r).map(p=>`<tr><td>${esc(p.name)}</td><td>${esc(p.team)}</td><td class="num">${p.r}</td><td class="num">${p.w}</td><td class="num">${p.f}</td><td class="num">${p.s}</td><td class="num">${p.c}</td></tr>`).join('')}</tbody></table>`:'<div class="empty">टीमें और खिलाड़ी जोड़ने के बाद आंकड़े दिखेंगे।</div>';let cp=document.getElementById('catchPlayer');cp.innerHTML=a.map(p=>`<option value="${esc(p.name+'|'+p.team)}">${esc(p.name+' — '+p.team)}</option>`).join('')}
+function addCatches(){let [name,team]=document.getElementById('catchPlayer').value.split('|'),t=db.teams.find(x=>x.name===team),p=(db.players[t?.id]||[]).find(x=>x.name===name);if(!p)return alert('खिलाड़ी नहीं मिला');p.catches=(p.catches||0)+Math.max(1,+document.getElementById('catchCount').value||1);save()}
+function renderPoints(){let rows=db.teams.map(t=>{let p={team:t.name,mp:0,w:0,l:0,t:0,pts:0,rf:0,ra:0};db.matches.filter(m=>m.status==='done'&&m.innings.length===2).forEach(m=>{if(![m.a,m.b].includes(t.id))return;p.mp++;let x=m.innings.find(i=>i.bat===t.id)?.runs||0,y=m.innings.find(i=>i.bowl===t.id)?.runs||0;p.rf+=x;p.ra+=y;if(x>y){p.w++;p.pts+=2}else if(x<y)p.l++;else{p.t++;p.pts++}});return p}).sort((a,b)=>b.pts-a.pts||b.rf-b.ra);document.getElementById('pointsTable').innerHTML=rows.length?`<table><thead><tr><th>टीम</th><th class="num">मैच</th><th class="num">जीत</th><th class="num">हार</th><th class="num">टाई</th><th class="num">अंक</th><th class="num">रन अंतर</th></tr></thead><tbody>${rows.map(x=>`<tr><td>${esc(x.team)}</td><td class="num">${x.mp}</td><td class="num">${x.w}</td><td class="num">${x.l}</td><td class="num">${x.t}</td><td class="num"><b>${x.pts}</b></td><td class="num">${x.rf-x.ra}</td></tr>`).join('')}</tbody></table>`:'<div class="empty">पहले टीमें जोड़ें।</div>'}
+function shareApp(){let url=location.href;if(navigator.share)navigator.share({title:'KHARTA PREMIER LEAGUE',text:'KPL Scoring App',url}).catch(()=>{});else copyAppLink()}
+function copyAppLink(){let u=location.href;if(navigator.clipboard)navigator.clipboard.writeText(u).then(()=>alert('लिंक कॉपी हो गया'));else prompt('ऐप लिंक कॉपी करें',u)}
+function exportData(){let blob=new Blob([JSON.stringify(db,null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='KPL_Backup_'+new Date().toISOString().slice(0,10)+'.json';a.click();URL.revokeObjectURL(a.href)}
+function importData(){let f=document.getElementById('importFile').files[0];if(!f)return alert('पहले बैकअप फाइल चुनें');let r=new FileReader();r.onload=()=>{try{let d=JSON.parse(r.result);if(!d.teams||!d.matches)throw 0;if(!confirm('मौजूदा डेटा की जगह बैकअप लोड करें?'))return;db=d;currentId=null;save();alert('बैकअप सफलतापूर्वक लोड हुआ')}catch(e){alert('यह सही KPL बैकअप फाइल नहीं है')}};r.readAsText(f)}
+function resetAll(){if(!confirm('क्या आप पूरा KPL डेटा हटाना चाहते हैं?'))return;db=fresh();currentId=null;save();newMatch()}
+
+// Firebase Realtime Database: public read, authenticated single-admin writes (enforced by RTDB rules).
+window.kplCloudReady=false;window.kplIsAdmin=false;window.kplDbRef=null;let kplListener=null;
+function cloudMessage(msg){let el=document.getElementById('cloudStatus');if(el)el.textContent=msg}
+function setAdminMode(on){window.kplIsAdmin=!!on;document.body.classList.toggle('viewer',!on);let c=document.getElementById('scoreControls');if(c&&!on)c.classList.add('hidden');if(on&&currentId)renderMatch();cloudMessage(on?'एडमिन लॉगिन सफल • स्कोर अपडेट की अनुमति चालू':'दर्शक मोड • लाइव स्कोर केवल देख सकते हैं')}
+function kplAuthErrorMessage(e){
+ const code=e&&e.code?e.code:'';
+ const map={
+  'auth/invalid-credential':'ईमेल या पासवर्ड मेल नहीं खा रहा। Firebase Users में इसी ईमेल का पासवर्ड रीसेट करके नया पासवर्ड सीधे टाइप करें।',
+  'auth/wrong-password':'पासवर्ड गलत है।',
+  'auth/user-not-found':'इस ईमेल का Firebase Authentication यूज़र नहीं मिला।',
+  'auth/invalid-email':'ईमेल का फॉर्मेट सही नहीं है।',
+  'auth/too-many-requests':'कई बार कोशिश हुई है। थोड़ी देर बाद फिर प्रयास करें।',
+  'auth/operation-not-allowed':'Firebase में Email/Password Sign-in चालू नहीं है।',
+  'auth/network-request-failed':'इंटरनेट कनेक्शन जाँचें और फिर प्रयास करें।',
+  'auth/unauthorized-domain':'इस वेबसाइट/डोमेन को Firebase Authentication के Authorized domains में जोड़ना होगा।',
+  'auth/email-already-in-use':'यह ईमेल पहले से रजिस्टर्ड है।',
+  'auth/weak-password':'पासवर्ड बहुत कमजोर है; कम से कम 6 अक्षर रखें।'
+ };
+ return (map[code]||'Firebase लॉगिन त्रुटि: '+(e&&e.message?e.message:'अज्ञात समस्या'))+' ['+(code||'no-error-code')+']';
+}
+async function connectFirebase(){
+ const btn=document.getElementById('kplConnectBtn');
+ if(btn){btn.disabled=true;btn.textContent='कनेक्ट हो रहा है…'}
+ try{
+  let raw=document.getElementById('firebaseConfig').value.trim(),cfg=JSON.parse(raw);
+  if(!cfg.apiKey||!cfg.authDomain||!cfg.databaseURL||!cfg.projectId||!cfg.appId)throw new Error('Firebase Config में apiKey, authDomain, databaseURL, projectId और appId सभी जरूरी हैं');
+  if(!firebase.apps.length)firebase.initializeApp(cfg);
+  else if(firebase.app().options.projectId!==cfg.projectId)throw new Error('दूसरा Firebase प्रोजेक्ट पहले से खुला है। पेज बंद करके डाउनलोड की हुई यह नई फाइल फिर खोलें।');
+  localStorage.setItem('kpl_firebase_config',raw);
+  const auth=firebase.auth();
+  await auth.setPersistence(firebase.auth.Auth.Persistence.LOCAL);
+  const dbRef=firebase.database().ref('kpl/data');
+  window.kplDbRef=dbRef;
+  window.kplCloudReady=true;
+  if(kplListener)dbRef.off('value',kplListener);
+  const email=document.getElementById('adminEmail').value.trim().toLowerCase();
+  const pass=document.getElementById('adminPassword').value;
+  let user=auth.currentUser;
+  if(!user){
+   if(!email||!pass)throw new Error('एडमिन ईमेल और पासवर्ड दोनों भरें।');
+   try{
+    const cred=await auth.signInWithEmailAndPassword(email,pass);
+    user=cred.user;
+   }catch(e){
+    throw new Error(kplAuthErrorMessage(e));
+   }
+  }
+  auth.onAuthStateChanged(u=>setAdminMode(!!u));
+  kplListener=dbRef.on('value',snap=>{
+   let remote=snap.val();
+   if(remote&&typeof remote==='object'){
+    db=remote;localStorage.setItem(KEY,JSON.stringify(db));renderAll();
+    cloudMessage(window.kplIsAdmin?'एडमिन ऑनलाइन • लाइव स्कोर सिंक चालू':'लाइव स्कोर जुड़ा हुआ • केवल देखने की अनुमति');
+   }else if(window.kplIsAdmin){
+    dbRef.set(db).catch(e=>cloudMessage('पहला डेटा सेव नहीं हुआ: '+e.message));
+   }else{
+    db=fresh();renderAll();cloudMessage('डेटाबेस तैयार है; अभी कोई मैच/टीम नहीं जोड़ी गई।');
+   }
+  },err=>cloudMessage('डेटाबेस पढ़ने में समस्या: '+err.message));
+  cloudMessage('Firebase कनेक्ट हो गया। '+(user?'एडमिन लॉगिन सफल।':'दर्शक मोड चालू।'));
+ }catch(e){
+  const msg=e&&e.message?e.message:String(e);
+  cloudMessage('कनेक्शन नहीं हुआ: '+msg);
+  alert('KPL Firebase: '+msg);
+ }finally{
+  if(btn){btn.disabled=false;btn.textContent='डेटाबेस जोड़ें / एडमिन लॉगिन'}
+ }
+}
+async function sendKplPasswordReset(){
+ try{
+  let raw=document.getElementById('firebaseConfig').value.trim(),cfg=JSON.parse(raw);
+  if(!cfg.apiKey||!cfg.authDomain)throw new Error('पहले Firebase Config पेस्ट करें।');
+  if(!firebase.apps.length)firebase.initializeApp(cfg);
+  const email=document.getElementById('adminEmail').value.trim().toLowerCase();
+  if(!email)throw new Error('पहले Admin ईमेल भरें।');
+  await firebase.auth().sendPasswordResetEmail(email);
+  cloudMessage('पासवर्ड रीसेट ईमेल भेज दिया गया है। Inbox और Spam फ़ोल्डर देखें।');
+  alert('पासवर्ड रीसेट ईमेल भेज दिया गया है। Inbox और Spam फ़ोल्डर देखें।');
+ }catch(e){
+  const msg=e&&e.code?kplAuthErrorMessage(e):(e&&e.message?e.message:String(e));
+  cloudMessage('रीसेट ईमेल नहीं भेजा गया: '+msg);
+  alert('रीसेट ईमेल नहीं भेजा गया: '+msg);
+ }
+}
+async function adminLogout(){try{if(firebase.apps.length)await firebase.auth().signOut();setAdminMode(false)}catch(e){cloudMessage('लॉगआउट त्रुटि: '+e.message)}}
+(function restoreFirebaseConfig(){let x=localStorage.getItem('kpl_firebase_config');if(x){document.getElementById('firebaseConfig').value=x;cloudMessage('Firebase Config इस डिवाइस पर उपलब्ध है। कनेक्ट करें।')}setAdminMode(false)})();
+renderAll();
+</script></body></html>
